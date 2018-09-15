@@ -1,0 +1,17 @@
+<% unless session[:user] %>
+<a href="/signin">ログイン</a> <a href="/signup">新規登録</a><br>
+<h2>未ログイン</h2>
+<% else %>
+<a href="/signout">ログアウト</a>
+<h2><%= User.find(session[:user]).mail %>としてログイン</h2>
+<% end %>
+
+<h2>一覧</h2>
+<table>
+<% @users.each do |user| %>
+<tr>
+	<td><%= user.mail %>aaa</td>
+	<td><%= user.password %>a</td>
+</tr>
+<% end %>
+</table>
